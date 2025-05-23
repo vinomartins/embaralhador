@@ -1,6 +1,6 @@
 from shiny import App, render, ui
 from shiny import App, reactive, render, req, ui
-
+from shinyswatch import theme
 from parser import problemsDataFrame 
 
 
@@ -48,8 +48,10 @@ app_ui = ui.page_fluid(
         ui.card(
             ui.input_text_area(
                 "listaProblemas",
-                "problemas:",
+                "Problemas:",
                 problemas_default,
+                height = '15vh',
+                width = '100vw',
             ),
             ui.input_text_area(
                 "listaAlunos",
@@ -66,9 +68,10 @@ app_ui = ui.page_fluid(
                 open = False,
             )
         ), 
-        ui.card(ui.output_data_frame("problemas")),
-    )
-
+        ui.output_data_frame("problemas"),
+        col_widths=[3, 6, 3]
+    ), 
+    theme = theme.darkly
 )
 
 
