@@ -44,21 +44,22 @@ uma lista com dois problemas for repetida 3 vezes.)
 """
 
 app_ui = ui.page_fluid(
-    ui.layout_column_wrap(
-        ui.card(
-            ui.input_text_area(
-                "listaAlunos",
-                "Alunos:",
-                alunos_default,
-                height = '50vh'
-            ),
-        ),
+    ui.layout_columns(
         ui.card(
             ui.input_text_area(
                 "listaProblemas",
                 "problemas:",
                 problemas_default,
             ),
+            ui.input_text_area(
+                "listaAlunos",
+                "Alunos:",
+                alunos_default,
+                height = '100vh',
+                width = '100vw',
+            ),
+        ),
+        ui.card(
             ui.input_action_button("generate", "Distribuir problemas"),
             ui.accordion(
                 ui.accordion_panel("Tutorial", ui.markdown(explain)),
